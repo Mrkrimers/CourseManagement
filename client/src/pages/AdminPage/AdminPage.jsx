@@ -1,15 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../../components/Header/Header"
 import style from '../AdminPage/style.module.scss'
+import { Button, Input } from "@mantine/core";
+import { useCreateCourseMutation, useDeleteCourseMutation, useUpdateCourseMutation } from "../../services/course";
 
 function AdminPage() {
     const [opt, setOpt] = useState('Создание')
     const [inp, setInp] = useState({
-        id: null,
+        id: Number,
         header: '',
         description: '',
         location: ''
     })
+    const [createCourse] = useCreateCourseMutation()
+    const [updateCourse] = useUpdateCourseMutation()
+    const [deleteCourse] = useDeleteCourseMutation()
+
+    useEffect(() => {
+        setInp({})
+    }, [opt])
 
     const changeOpt = (e) => {
         setOpt(e.target.textContent)
@@ -19,26 +28,45 @@ function AdminPage() {
         setInp({ ...inp, [e.target.name]: e.target.value })
     }
 
+    const sendData = async () => {
+        if (opt === 'Создание') {
+            const data = await createCourse(inp);
+            console.log(data);
+            window.location.reload()
+        } else if (opt === 'Обновление') {
+            const data = await updateCourse(inp);
+            console.log(data);
+            window.location.reload()
+        } else if (opt === 'Удаление') {
+            const data = await deleteCourse(inp);
+            console.log(data);
+            window.location.reload()
+        }
+
+    }
+
     const showContent = () => {
         if (opt === 'Создание') {
             return (
                 <>
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="header"
-                            placeholder="Введите название курса" />
+                            placeholder="Введите название курса"
+                        />
                     </div>
 
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="description"
-                            placeholder="Введите описание курса" />
+                            placeholder="Введите описание курса"
+                        />
                     </div>
 
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="location"
                             placeholder="Введите город" />
@@ -49,28 +77,28 @@ function AdminPage() {
             return (
                 <>
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="header"
                             placeholder="Введите название курса" />
                     </div>
 
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="description"
                             placeholder="Введите описание курса" />
                     </div>
 
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="location"
                             placeholder="Введите город" />
                     </div>
 
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="id"
                             placeholder="Введите ID" />
@@ -80,7 +108,7 @@ function AdminPage() {
             return (
                 <>
                     <div className={style.inp}>
-                        <input
+                        <Input
                             onChange={getInpData}
                             name="id"
                             placeholder="Введите ID" />
@@ -103,7 +131,7 @@ function AdminPage() {
             {showContent()}
 
             <div className={style.btn}>
-                <button>Применить</button>
+                <Button onClick={sendData}>Применить</Button>
             </div>
 
         </>
