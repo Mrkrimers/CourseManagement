@@ -1,14 +1,1 @@
-[
-    {
-        "id": "951d0540-65e4-11ee-adec-0ddd4d465150",
-        "header": "JS",
-        "description": "the best JS",
-        "location": "Minsk"
-    },
-    {
-        "id": "792b7610-65ed-11ee-ac6c-ebf75167d3a9",
-        "header": "TS",
-        "description": "TS cool",
-        "location": "Smorgon"
-    }
-]
+[{"id":"951d0540-65e4-11ee-adec-0ddd4d465150","header":"JS","description":"the best JS","location":"Minsk"},{"id":"792b7610-65ed-11ee-ac6c-ebf75167d3a9","header":"TS","description":"TS cool","location":"Smorgon"},{"id":"d6e96a70-9def-11ee-b423-87029c3c0d9d","header":"Java","description":"This is Java course","location":"Mogilev"}]

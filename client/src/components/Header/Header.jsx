@@ -1,21 +1,24 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, } from 'react-router-dom'
 import style from '../Header/style.module.scss'
 
 
 function Header() {
+    const { pathname } = useLocation();
+
+
     return (
-        <>
+        <header>
             <div className={style.container}>
 
-                <Link to={'/'}>   <h2>CoursesRUD.</h2> </Link>
+                <Link to={'/'}> <h2>NoteBookRUD</h2> </Link>
 
                 <div className={style.wrapper}>
-                    <Link to={'/admin'}> <p>Администрирование</p> </Link>
-                    <Link to={'/'}> <p>Просмотр</p> </Link>
+                    <Link to={'/admin'}> <p className={pathname === '/admin' ? style.active : null}>Администрирование</p> </Link>
+                    <Link to={'/'}> <p className={pathname === '/' ? style.active : null}>Просмотр</p> </Link>
                 </div>
 
             </div>
-        </>
+        </header>
     )
 }
 
