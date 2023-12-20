@@ -123,15 +123,17 @@ function AdminPage() {
             <Header />
 
             <div className={style.rest}>
-                <h2 onClick={changeOpt}>Создание</h2>
-                <h2 onClick={changeOpt}>Обновление</h2>
-                <h2 onClick={changeOpt}>Удаление</h2>
+                <h2 onClick={changeOpt} className={opt === 'Создание' ? style.active : null}>Создание</h2>
+                <h2 onClick={changeOpt} className={opt === 'Обновление' ? style.active : null}>Обновление</h2>
+                <h2 onClick={changeOpt} className={opt === 'Удаление' ? style.active : null}>Удаление</h2>
             </div>
 
-            {showContent()}
+            <div className={style.wrapperContent}>
+                {showContent()}
 
-            <div className={style.btn}>
-                <Button onClick={sendData}>Применить</Button>
+                <div className={style.btn}>
+                    <Button onClick={sendData}>Применить</Button>
+                </div>
             </div>
 
         </>
