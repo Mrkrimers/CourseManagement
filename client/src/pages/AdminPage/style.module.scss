@@ -31,4 +31,13 @@
 .wrapperContent {
     width: 50vw;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+
+    h2 {
+        color: var(--Black, #232134);
+        font: 700 16px Inter;
+    }
 }

@@ -49,6 +49,7 @@ function AdminPage() {
         if (opt === 'Создание') {
             return (
                 <>
+                    <h2>Курс</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -57,6 +58,7 @@ function AdminPage() {
                         />
                     </div>
 
+                    <h2>Описание</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -65,6 +67,7 @@ function AdminPage() {
                         />
                     </div>
 
+                    <h2>Город</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -76,6 +79,7 @@ function AdminPage() {
         } else if (opt === 'Обновление') {
             return (
                 <>
+                    <h2>Курс</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -83,6 +87,7 @@ function AdminPage() {
                             placeholder="Введите название курса" />
                     </div>
 
+                    <h2>Описание</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -90,6 +95,7 @@ function AdminPage() {
                             placeholder="Введите описание курса" />
                     </div>
 
+                    <h2>Город</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -97,6 +103,7 @@ function AdminPage() {
                             placeholder="Введите город" />
                     </div>
 
+                    <h2>ID</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -107,6 +114,7 @@ function AdminPage() {
         } else if (opt === 'Удаление') {
             return (
                 <>
+                    <h2>ID</h2>
                     <div className={style.inp}>
                         <Input
                             onChange={getInpData}
@@ -132,7 +140,7 @@ function AdminPage() {
                 {showContent()}
 
                 <div className={style.btn}>
-                    <Button onClick={sendData}>Применить</Button>
+                    <Button fullWidth onClick={sendData}>Применить</Button>
                 </div>
             </div>
 
