@@ -13,12 +13,12 @@ main {
 
     .block {
         display: grid;
-        grid-template-columns: repeat(2, 40%);
+        grid-template-columns: repeat(2, 45%);
         gap: 10px 60px;
         justify-content: center;
-        padding: 30px 250px;
+        padding: 30px 20%;
 
-        .content {
+        .item {
             padding: 24px;
             border-radius: 12px;
             border: 1px solid var(--Grey-200, #EAEBED);
@@ -59,6 +59,36 @@ main {
                 transition: all 0.3s;
                 box-shadow: 3px 4px 5px 0px #6395f4;
             }
+        }
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    main {
+        .wrapper {
+            margin-top: 20px;
+
+            input {
+                width: 50vw;
+            }
+        }
+
+        .block {
+            grid-template-columns: repeat(1, 70%);
+            padding: 20px 10px;
+
+            .item {
+                padding: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:431px) {
+    main {
+        .block {
+            grid-template-columns: repeat(1, 100%);
         }
     }
 }

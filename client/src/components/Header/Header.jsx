@@ -5,7 +5,6 @@ import style from '../Header/style.module.scss'
 function Header() {
     const { pathname } = useLocation();
 
-
     return (
         <header>
             <div className={style.container}>

@@ -19,7 +19,7 @@ function HomePage() {
             </div>
 
             <div className={style.block} >
-                {data?.map((el) => <div className={style.content} key={el.id}>
+                {data?.map((el) => <div className={style.item} key={el.id}>
                     <h3>{el.header}</h3>
                     <p>{el.description}</p>
                     <div className={style.miniWrapper}>
